@@ -1,0 +1,25 @@
+body {
+	background-color: #eee !important;
+	font-family: sans-serif;
+}
+
+.form-bg {
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.form-control {
+	margin-bottom: 10px !important;
+}
+
+form dd, form dt { 
+	display: inline; 
+}
+#submit-label {
+	display: none !important;
+}
+#submitbutton, #submit-element {
+	width: 100px !important;
+	margin: 0 auto !important;
+}

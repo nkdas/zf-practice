@@ -1,0 +1,23 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Zend Framework Practice');
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/style.css'); ?>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="content" class="container-fluid">
+        <h1><?php echo $this->escape($this->title); ?></h1>
+        <?php echo $this->layout()->content; ?>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

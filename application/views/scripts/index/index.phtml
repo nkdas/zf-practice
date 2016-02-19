@@ -1,0 +1,22 @@
+<?php
+$this->headTitle('Login');
+?>
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="form-bg">
+            <div class="row">
+                <div class="col-md-12">
+                    <?php echo $this->form; ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label><a href="<?php echo $this->url(array(
+                    'controller'=>'index', 
+                    'action'=>'register'
+                    )); ?>" >New user? Register here</a></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
