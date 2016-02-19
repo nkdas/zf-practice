@@ -50,9 +50,10 @@ class IndexController extends Zend_Controller_Action
                     foreach ($status as $key => $value) {
                         echo $value.'<br>';
                     };
+                    $form->populate($formData);
                 }
             } else {
-                $this->view->$form->populate($formData);
+                $form->populate($formData);
             }
             
         }
