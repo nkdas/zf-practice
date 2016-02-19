@@ -2,7 +2,6 @@
 
 class IndexController extends Zend_Controller_Action
 {
-
     public function init()
     {
         /* Initialize action controller here */
@@ -43,21 +42,19 @@ class IndexController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
-                $email = $form->getValue('email');
-                $password = $form->getValue('password');
                 $students = new Application_Model_DbTable_Students();
-                $status = $students->register($email, $password);
+                $status = $students->register($form);
                 if ('success' == $status) {
                     $this->_redirect('/index');
                 } else {
                     foreach ($status as $key => $value) {
-                        echo $value . '<br>';
+                        echo $value.'<br>';
                     };
                 }
-                
             } else {
-                $form->populate($formData);
+                $this->view->$form->populate($formData);
             }
+            
         }
     }
 
