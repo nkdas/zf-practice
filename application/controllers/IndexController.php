@@ -17,14 +17,31 @@ class IndexController extends Zend_Controller_Action
             if ($this->getRequest()->isPost()) {
                 $formData = $this->getRequest()->getPost();
                 if ($form->isValid($formData)) {
-                    $email = $form->getValue('email');
-                    $password = $form->getValue('password');
-                    $students = new Application_Model_DbTable_Students();
-                    $row = $students->getData($email);
-                    if ($row['password'] == $password) {
+                    $db = $this->_getParam('db');
+                    $adapter = new Zend_Auth_Adapter_DbTable(
+                        $db,
+                        'student_details',
+                        'email',
+                        'password'
+                    );
+
+                    $adapter->setIdentity($form->getValue('email'));
+                    $adapter->setCredential($form->getValue('password'));
+
+                    $auth = Zend_Auth::getInstance();
+                    $result = $auth->authenticate($adapter);
+
+                    if ($result->isValid()) {
+                        $dbObject = new Application_Model_DbTable_Students();
+                        $record = $dbObject->getData($form->getValue('email'));
+                        Zend_Auth::getInstance()->getStorage()->write(
+                            $record
+                        );
+
+                        $this->_helper->FlashMessenger('Successful Login');
                         $this->_helper->redirector('home');
-                    } else {
-                        echo 'Invalid email or password!';
+
+                        return;
                     }
                 }
             }
@@ -55,7 +72,6 @@ class IndexController extends Zend_Controller_Action
             } else {
                 $form->populate($formData);
             }
-            
         }
     }
 

@@ -8,20 +8,20 @@ class My_Decorator_SimpleInput extends Zend_Form_Decorator_Abstract
     <label for="%s">%s</label>
     <input id="%s" name="%s" type="%s" class="form-control"/>
     </div></div>';
- 
+
     public function render($content)
     {
         $element = $this->getElement();
-        $name    = htmlentities($element->getFullyQualifiedName());
-        $label   = htmlentities($element->getLabel());
-        $id      = htmlentities($element->getId());
-        $value   = htmlentities($element->getValue());
-        $type    = htmlentities($element->getAttrib('type'));
- 
-        $markup  = sprintf($this->_format, $name, $label, $id, $name, $type);
+        $name = htmlentities($element->getFullyQualifiedName());
+        $label = htmlentities($element->getLabel());
+        $id = htmlentities($element->getId());
+        $value = htmlentities($element->getValue());
+        $type = htmlentities($element->getAttrib('type'));
+
+        $markup = sprintf($this->_format, $name, $label, $id, $name, $type);
+
         return $markup;
     }
-
 }
 
 class My_Decorator_SimpleButton extends Zend_Form_Decorator_Abstract
@@ -31,25 +31,23 @@ class My_Decorator_SimpleButton extends Zend_Form_Decorator_Abstract
     <div class="col-md-4">
     <input id="%s" name="%s" type="%s" class="btn btn-primary" value="%s"/>
     </div></div>';
- 
+
     public function render($content)
     {
         $element = $this->getElement();
-        $name    = htmlentities($element->getFullyQualifiedName());
-        $id      = htmlentities($element->getId());
-        $value   = htmlentities($element->getValue());
-        $type    = htmlentities($element->getAttrib('type'));
- 
-        $markup  = sprintf($this->_format, $id, $name, $type, $value);
+        $name = htmlentities($element->getFullyQualifiedName());
+        $id = htmlentities($element->getId());
+        $value = htmlentities($element->getValue());
+        $type = htmlentities($element->getAttrib('type'));
+
+        $markup = sprintf($this->_format, $id, $name, $type, $value);
+
         return $markup;
     }
-
 }
-
 
 class Application_Form_Registration extends Zend_Form
 {
-
     public function init()
     {
         $this->setName('registration');
@@ -98,7 +96,4 @@ class Application_Form_Registration extends Zend_Form
 
         $this->addElements(array($firstName, $email, $password, $reEnterPassword, $submit));
     }
-
-
 }
-

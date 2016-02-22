@@ -1,7 +1,7 @@
 <?php
+
 class Application_Model_DbTable_Students extends Zend_Db_Table_Abstract
 {
-
     protected $_name = 'student_details';
     public function register($form)
     {
@@ -33,17 +33,18 @@ class Application_Model_DbTable_Students extends Zend_Db_Table_Abstract
                 'password' => $form->getValue('password'),
             );
             $this->insert($data);
+
             return 'success';
         }
-            
     }
 
     public function getData($email)
     {
-        $row = $this->fetchRow("email = '" . $email . "'");
+        $row = $this->fetchRow("email = '".$email."'");
         if (!$row) {
-            throw new Exception("Could not find row $id");
+            throw new Exception("Could not find row $email");
         }
+
         return $row->toArray();
     }
 }
