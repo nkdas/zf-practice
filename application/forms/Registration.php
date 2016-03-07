@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @class My_Decorator_SimpleInput
+ * @description Form decorator for InputFields
+ */
 class My_Decorator_SimpleInput extends Zend_Form_Decorator_Abstract
 {
     protected $_format = '
@@ -24,6 +28,10 @@ class My_Decorator_SimpleInput extends Zend_Form_Decorator_Abstract
     }
 }
 
+/**
+ * @class My_Decorator_SimpleButton
+ * @description Form decorator for buttons
+ */
 class My_Decorator_SimpleButton extends Zend_Form_Decorator_Abstract
 {
     protected $_format = '
@@ -46,6 +54,10 @@ class My_Decorator_SimpleButton extends Zend_Form_Decorator_Abstract
     }
 }
 
+/**
+ * @class Application_Form_Registration
+ * @description Creates a Registration form
+ */
 class Application_Form_Registration extends Zend_Form
 {
     public function init()

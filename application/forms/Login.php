@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @class Application_Form_Login
+ * @description Creates a Login form
+ */
 class Application_Form_Login extends Zend_Form
 {
     public function init()
@@ -19,7 +23,7 @@ class Application_Form_Login extends Zend_Form
             ->setAttrib('class', 'form-control');
 
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setAttrib('id', 'submitbutton')
+        $submit->setAttrib('id', 'submitButton')
             ->setAttrib('class', 'btn btn-primary form-group');
 
         $this->addElements(array($id, $email, $password, $submit));
