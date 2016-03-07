@@ -22,7 +22,7 @@ $acl->allow('admin'); // Has access to everything.
 $acl->allow('normal'); // Has access to everything...
 $acl->deny('normal', 'admin'); // ... except the admin controller.
 
-// Finally I store whole ACL definition to registry for use
+// store ACL definition to registry for use
 // in AuthPlugin plugin.
 
 $registry = Zend_Registry::getInstance();
