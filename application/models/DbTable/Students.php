@@ -1,8 +1,18 @@
 <?php
 
+/**
+ * @Class   Application_Model_DbTable_Students
+ */
 class Application_Model_DbTable_Students extends Zend_Db_Table_Abstract
 {
     protected $_name = 'student_details';
+
+    /**
+     * @function register($form)
+     * @purpose  saves form data to the database
+     * @params   form
+     * @return   string registration status whether success or failure
+     */
     public function register($form)
     {
         $error = array();
@@ -38,6 +48,12 @@ class Application_Model_DbTable_Students extends Zend_Db_Table_Abstract
         }
     }
 
+    /**
+     * @function getData($email)
+     * @purpose  returns the record for the provided email
+     * @params   string $email
+     * @return   array database record for the provided email
+     */
     public function getData($email)
     {
         $row = $this->fetchRow("email = '".$email."'");
